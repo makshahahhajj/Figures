@@ -28,17 +28,16 @@ public class Cylinder extends Figure{
         }
 
         return coord1.get(CONSTS.FIRST) * coord3.get(CONSTS.FIRST) + coord1.get(CONSTS.SECOND) * coord3.get(CONSTS.SECOND) + coord1.get(CONSTS.THIRD) * coord3.get(CONSTS.THIRD) == 0;
-
-
     }
 
     public String getPerimeter() {
         return " has no perimeter";
     }
 
-
     public String getArea() {
-        double h, radius = 0;
+        double h = 0;
+        double radius = 0;
+
         if (!flag1) {
             h = Math.sqrt(Math.pow(Points.get(CONSTS.FIRST).getX() - Points.get(CONSTS.SECOND).getX(), 2) + Math.pow(Points.get(CONSTS.FIRST).getY() - Points.get(CONSTS.SECOND).getY(), 2) + Math.pow(Points.get(CONSTS.FIRST).getZ() - Points.get(CONSTS.SECOND).getZ(), 2));
             radius = Math.sqrt(Math.pow(Points.get(CONSTS.SECOND).getX() - Points.get(CONSTS.THIRD).getX(), 2) + Math.pow(Points.get(CONSTS.SECOND).getY() - Points.get(CONSTS.THIRD).getY(), 2) + Math.pow(Points.get(CONSTS.SECOND).getZ() - Points.get(CONSTS.THIRD).getZ(), 2));
@@ -46,7 +45,6 @@ public class Cylinder extends Figure{
             h = Math.sqrt(Math.pow(Points.get(CONSTS.FIRST).getX() - Points.get(CONSTS.SECOND).getX(), 2) + Math.pow(Points.get(CONSTS.FIRST).getY() - Points.get(CONSTS.SECOND).getY(), 2) + Math.pow(Points.get(CONSTS.FIRST).getZ() - Points.get(CONSTS.SECOND).getZ(), 2));
             radius = Math.sqrt(Math.pow(Points.get(CONSTS.FIRST).getX() - Points.get(CONSTS.THIRD).getX(), 2) + Math.pow(Points.get(CONSTS.FIRST).getY() - Points.get(CONSTS.THIRD).getY(), 2) + Math.pow(Points.get(CONSTS.FIRST).getZ() - Points.get(CONSTS.THIRD).getZ(), 2));
         }
-
 
         return String.format("%.2f", 2 * Math.PI * radius * (radius + h));
     }

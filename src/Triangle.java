@@ -2,7 +2,9 @@ import java.util.ArrayList;
 
 public class Triangle extends Figure{
 
-    double line1, line2, line3 = 0;
+    private double line1 = 0;
+    private double line2 = 0;
+    private double line3 = 0;
 
     public Triangle(ArrayList<Point> Points, int n, int count1, int count2) {
         super(Points, n, count1, count2);

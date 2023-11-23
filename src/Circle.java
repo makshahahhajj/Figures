@@ -17,6 +17,7 @@ public class Circle extends Figure {
 
         }
     }
+
     @Override
     public String getArea() {
         double area = Math.PI * Math.pow(radius, 2);

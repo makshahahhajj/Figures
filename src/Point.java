@@ -34,5 +34,4 @@ public class Point {
 
         return false;
     }
-
 }

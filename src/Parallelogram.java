@@ -1,17 +1,17 @@
 import java.util.ArrayList;
 
 public class Parallelogram extends Figure {
-    private static double line1 = 0;
-    private static double line2 = 0;
-    private static double line3 = 0;
-    private static double line4 = 0;
+    private double line1 = 0;
+    private double line2 = 0;
+    private double line3 = 0;
+    private double line4 = 0;
 
     public Parallelogram(ArrayList<Point> Points, int n, int count1, int count2) {
         super(Points, n, count1, count1);
     }
 
     public String getArea() {
-        ArrayList<Point> pointsT = Points;
+        ArrayList<Point> pointsT = new ArrayList<>(Points);
 
         pointsT.remove(0);
 

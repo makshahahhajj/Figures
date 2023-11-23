@@ -11,12 +11,10 @@ public class Sphere extends Figure{
 
     }
 
-
     public String getArea() {
         double radius = Math.sqrt(Math.pow(Points.get(CONSTS.FIRST).getX() - Points.get(CONSTS.SECOND).getX(), 2) + Math.pow(Points.get(CONSTS.FIRST).getY() - Points.get(CONSTS.SECOND).getY(), 2) + Math.pow(Points.get(CONSTS.FIRST).getZ() - Points.get(CONSTS.SECOND).getZ(), 2));
         return String.format("%.2f", 4 * Math.PI * Math.pow(radius, 2));
     }
-
 
     public boolean isValid() {
        return super.isValid();

@@ -56,7 +56,6 @@ public class Rectangle extends Figure{
         double line3 = setLine(Points.get(CONSTS.THIRD), Points.get(CONSTS.FOURTH));
         double line4 = setLine(Points.get(CONSTS.FOURTH), Points.get(CONSTS.FIRST));
 
-
         lineOne = line1;
         lineTwo = line2;
 

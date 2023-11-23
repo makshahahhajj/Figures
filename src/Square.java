@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class Square extends Figure {
-
     private double line = 0;
 
     public Square(ArrayList<Point> Points, int n, int count1, int count2) {

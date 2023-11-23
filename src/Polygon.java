@@ -1,15 +1,14 @@
 import java.util.ArrayList;
 
 public class Polygon extends Figure {
-    private double perim = 0;
-    private double area = 0;
 
     public Polygon(ArrayList<Point> Points, int n, int count1, int count2) {
         super(Points, n, count1, count2);
     }
 
-
     public String getPerimeter() {
+        double perim = 0;
+
         if (Points.get(0).len() == 2) {
             for (int i = 0; i < Points.size() - 1; i++) {
                 perim += Math.sqrt(Math.pow(Points.get(i).getX() - Points.get(i + 1).getX(), 2) + Math.pow(Points.get(i).getY() - Points.get(i + 1).getY(), 2));
@@ -22,9 +21,9 @@ public class Polygon extends Figure {
 
         return String.format(" perimeter %.2f", perim);
     }
-
     @Override
     public String getArea() {
+        double area = 0;
         if (Points.get(0).len() == 2) {
 
             for (int i = 0; i < Points.size() - 1; i++) {
