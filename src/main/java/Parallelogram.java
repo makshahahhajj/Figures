@@ -6,12 +6,12 @@ public class Parallelogram extends Figure {
     private double line3 = 0;
     private double line4 = 0;
 
-    public Parallelogram(ArrayList<Point> Points, int n, int count1, int count2) {
-        super(Points, n, count1, count1);
+    public Parallelogram(ArrayList<Point> dots, int n, int count1, int count2) {
+        super(dots, n, count1, count2);
     }
 
     public String getArea() {
-        ArrayList<Point> pointsT = new ArrayList<>(Points);
+        ArrayList<Point> pointsT = new ArrayList<>(dots);
 
         pointsT.remove(0);
 
@@ -27,10 +27,10 @@ public class Parallelogram extends Figure {
     }
 
     public boolean isValid() {
-        Point point1 = Points.get(CONSTS.FIRST);
-        Point point2 = Points.get(CONSTS.SECOND);
-        Point point3 = Points.get(CONSTS.THIRD);
-        Point point4 = Points.get(CONSTS.FOURTH);
+        Point point1 = dots.get(Consts.FIRST);
+        Point point2 = dots.get(Consts.SECOND);
+        Point point3 = dots.get(Consts.THIRD);
+        Point point4 = dots.get(Consts.FOURTH);
 
         line1 = Math.sqrt(Math.pow(point1.getX() - point2.getX(), 2) + Math.pow(point1.getY() - point2.getY(), 2));
         line2 = Math.sqrt(Math.pow(point2.getX() - point3.getX(), 2) + Math.pow(point2.getY() - point3.getY(), 2));
@@ -39,5 +39,9 @@ public class Parallelogram extends Figure {
 
         return !(line1 != line3 || line2 != line4 || line1 == line2) && super.isValid();
 
+    }
+
+    public boolean isFigure() {
+        return false;
     }
 }

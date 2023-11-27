@@ -6,8 +6,8 @@ public class Triangle extends Figure{
     private double line2 = 0;
     private double line3 = 0;
 
-    public Triangle(ArrayList<Point> Points, int n, int count1, int count2) {
-        super(Points, n, count1, count2);
+    public Triangle(ArrayList<Point> dots, int n, int count1, int count2) {
+        super(dots, n, count1, count2);
     }
 
     private double setline (Point point1, Point point2) {
@@ -36,10 +36,15 @@ public class Triangle extends Figure{
     }
 
     public boolean isValid() {
-        line1 = setline(Points.get(CONSTS.FIRST), Points.get(CONSTS.SECOND));
-        line2 = setline(Points.get(CONSTS.SECOND), Points.get(CONSTS.THIRD));
-        line3 = setline(Points.get(CONSTS.THIRD), Points.get(CONSTS.FIRST));
+        line1 = setline(dots.get(Consts.FIRST), dots.get(Consts.SECOND));
+        line2 = setline(dots.get(Consts.SECOND), dots.get(Consts.THIRD));
+        line3 = setline(dots.get(Consts.THIRD), dots.get(Consts.FIRST));
 
         return !(line1 >= line2 + line3 || line2 >= line1 + line3 || line3 >= line1 + line2) && super.isValid();
     }
+
+    public boolean isFigure() {
+        return false;
+    }
+
 }

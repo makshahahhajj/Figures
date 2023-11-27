@@ -1,4 +1,4 @@
-interface CONSTS {
+interface Consts {
     int FIRST = 0;
     int SECOND = 1;
     int THIRD = 2;
