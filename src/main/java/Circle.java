@@ -1,3 +1,5 @@
+import consts.Consts;
+
 import java.util.ArrayList;
 
 public class Circle extends Figure {

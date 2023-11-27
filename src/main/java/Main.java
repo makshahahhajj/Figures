@@ -1,4 +1,4 @@
-import jdk.swing.interop.SwingInterOpUtils;
+import consts.Consts;
 
 import java.util.ArrayList;
 import java.util.Scanner;
