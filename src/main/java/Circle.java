@@ -32,7 +32,7 @@ public class Circle extends Figure {
 
     @Override
     public boolean isValid() {
-        return !(dots.get(0).equals(dots.get(1))) && super.isValid();
+        return super.isValid();
     }
 
     @Override

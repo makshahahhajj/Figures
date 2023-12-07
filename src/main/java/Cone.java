@@ -26,7 +26,7 @@ public class Cone extends Figure {
 
     public String getArea() {
         double radius = Math.sqrt(Math.pow(dots.get(Consts.FIRST).getX() - dots.get(Consts.SECOND).getX(), 2) + Math.pow(dots.get(Consts.FIRST).getY() - dots.get(Consts.SECOND).getY(), 2) + Math.pow(dots.get(Consts.FIRST).getZ() - dots.get(Consts.SECOND).getZ(), 2));
-        double h = Math.sqrt(Math.pow(dots.get(Consts.FIRST).getX() - dots.get(Consts.THIRD).getX(), 2) + Math.pow(dots.get(Consts.FIRST).getY() - dots.get(Consts.THIRD).getY(), 2) + Math.pow(dots.get(Consts.FIRST).getZ() - dots.get(Consts.THIRD).getZ(), 2));
+        double h = Math.sqrt(Math.pow(dots.get(Consts.SECOND).getX() - dots.get(Consts.THIRD).getX(), 2) + Math.pow(dots.get(Consts.SECOND).getY() - dots.get(Consts.THIRD).getY(), 2) + Math.pow(dots.get(Consts.SECOND).getZ() - dots.get(Consts.THIRD).getZ(), 2));
 
         return String.format("%.2f", Math.PI * radius * (h + radius));
     }

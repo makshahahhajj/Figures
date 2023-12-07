@@ -28,9 +28,9 @@ public class Triangle extends Figure{
     }
 
     public double getAreaDouble() {
+        isValid();
         double per = (line1 + line2 + line3) / 2;
         return Math.sqrt(per * (per - line1) * (per - line2) * (per - line3));
-
     }
 
     public  String getPerimeter() {

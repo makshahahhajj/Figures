@@ -57,7 +57,7 @@ public class Main {
             case "SPHERE":
                 return new Sphere(points, Consts.TWO_POINT, Consts.THREE_POINT, Consts.THREE_POINT);
             case "TRUNCATED_SPHERE":
-                return new TruccatedSphere(points, Consts.THREE_POINT, Consts.THREE_POINT, Consts.THREE_POINT);
+                return new TruncatedSphere(points, Consts.THREE_POINT, Consts.THREE_POINT, Consts.THREE_POINT);
             case "CYLINDER":
                 return new Cylinder(points, Consts.THREE_POINT, Consts.THREE_POINT, Consts.THREE_POINT);
             case "CONE":

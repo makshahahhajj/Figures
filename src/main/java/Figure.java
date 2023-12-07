@@ -40,6 +40,13 @@ public class Figure {
             }
         }
 
+        Point p = dots.get(0);
+        for(Point point : dots) {
+           if (point.len() != p.len()) {
+               return false;
+            }
+        }
+
         return dots.size() == n;
     }
 

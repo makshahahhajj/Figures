@@ -1,12 +1,40 @@
+import consts.Consts;
+
 import java.util.ArrayList;
 
 public class Square extends Figure {
     private double line = 0;
+    private boolean checkLen = dots.get(0).len() == 2;
 
     public Square(ArrayList<Point> dots, int n, int count1, int count2) {
         super(dots, n, count1, count2);
     }
 
+    private boolean checkCorner() {
+        if (checkLen) {
+            ArrayList<Integer> coord1 = new ArrayList<>();
+            coord1.add(dots.get(Consts.FIRST).getX() - dots.get(Consts.SECOND).getX());
+            coord1.add(dots.get(Consts.FIRST).getY() - dots.get(Consts.SECOND).getY());
+
+            ArrayList<Integer> coord2 = new ArrayList<>();
+            coord2.add(dots.get(Consts.THIRD).getX() - dots.get(Consts.SECOND).getX());
+            coord2.add(dots.get(Consts.THIRD).getY() - dots.get(Consts.SECOND).getY());
+
+            return (coord1.get(Consts.FIRST) * coord2.get(Consts.FIRST) + coord1.get(Consts.SECOND) * coord2.get(Consts.SECOND)) == 0;
+        } else {
+            ArrayList<Integer> coord1 = new ArrayList<>();
+            coord1.add(dots.get(Consts.FIRST).getX() - dots.get(Consts.SECOND).getX());
+            coord1.add(dots.get(Consts.FIRST).getY() - dots.get(Consts.SECOND).getY());
+            coord1.add(dots.get(Consts.FIRST).getZ() - dots.get(Consts.SECOND).getZ());
+
+            ArrayList<Integer> coord2 = new ArrayList<>();
+            coord2.add(dots.get(Consts.THIRD).getX() - dots.get(Consts.SECOND).getX());
+            coord2.add(dots.get(Consts.THIRD).getY() - dots.get(Consts.SECOND).getY());
+            coord2.add(dots.get(Consts.THIRD).getZ() - dots.get(Consts.SECOND).getZ());
+
+            return (coord1.get(Consts.FIRST) * coord2.get(Consts.FIRST) + coord1.get(Consts.SECOND) * coord2.get(Consts.SECOND) + coord1.get(Consts.THIRD) * coord2.get(Consts.THIRD)) == 0;
+        }
+    }
     private double setLine(Point p1, Point p2) {
         if (dots.get(0).len() == 2) {
             return Math.sqrt(Math.pow(p1.getX() - p2.getX(), 2) + Math.pow(p1.getY() - p2.getY(), 2));
@@ -35,7 +63,7 @@ public class Square extends Figure {
             }
         }
 
-        return (firstLine == secondLine) && super.isValid();
+        return checkCorner() && (firstLine == secondLine) && super.isValid();
     }
 
     public boolean isFigure() {

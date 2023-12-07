@@ -18,7 +18,6 @@ public class Parallelogram extends Figure {
         pointsT.remove(0);
 
         Triangle tr = new Triangle(pointsT, 3, 2, 3);
-
         return String.format("%.2f", tr.getAreaDouble() * 2);
 
     }
