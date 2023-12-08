@@ -20,7 +20,8 @@ public class Square extends Figure {
             coord2.add(dots.get(Consts.THIRD).getX() - dots.get(Consts.SECOND).getX());
             coord2.add(dots.get(Consts.THIRD).getY() - dots.get(Consts.SECOND).getY());
 
-            return (coord1.get(Consts.FIRST) * coord2.get(Consts.FIRST) + coord1.get(Consts.SECOND) * coord2.get(Consts.SECOND)) == 0;
+            return (coord1.get(Consts.FIRST) * coord2.get(Consts.FIRST) + coord1.get(Consts.SECOND) *
+                    coord2.get(Consts.SECOND)) == 0;
         } else {
             ArrayList<Integer> coord1 = new ArrayList<>();
             coord1.add(dots.get(Consts.FIRST).getX() - dots.get(Consts.SECOND).getX());
@@ -32,7 +33,8 @@ public class Square extends Figure {
             coord2.add(dots.get(Consts.THIRD).getY() - dots.get(Consts.SECOND).getY());
             coord2.add(dots.get(Consts.THIRD).getZ() - dots.get(Consts.SECOND).getZ());
 
-            return (coord1.get(Consts.FIRST) * coord2.get(Consts.FIRST) + coord1.get(Consts.SECOND) * coord2.get(Consts.SECOND) + coord1.get(Consts.THIRD) * coord2.get(Consts.THIRD)) == 0;
+            return (coord1.get(Consts.FIRST) * coord2.get(Consts.FIRST) + coord1.get(Consts.SECOND) *
+                    coord2.get(Consts.SECOND) + coord1.get(Consts.THIRD) * coord2.get(Consts.THIRD)) == 0;
         }
     }
     private double setLine(Point p1, Point p2) {

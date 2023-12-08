@@ -44,7 +44,6 @@ public class Parallelogram_Test {
         ));
         parallelogram = new Parallelogram(points, 4, 2, 3);
         then(parallelogram.isValid()).isFalse();
-
-
+        
     }
 }

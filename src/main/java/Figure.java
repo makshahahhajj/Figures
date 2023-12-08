@@ -13,9 +13,7 @@ public class Figure {
         this.count2 = count2;
     }
 
-    public Figure () {
-
-    }
+    public Figure () {}
     public String getArea() {
         return null;
     }
@@ -26,8 +24,7 @@ public class Figure {
 
     public  boolean isValid() {
         for (int i = 0; i < dots.size(); ++i) {
-            int len = dots.get(0).len();
-            if (dots.get(i).len() != count1 && dots.get(i).len() != count2 && len != dots.get(i).len()) {
+            if (dots.get(i).len() != count1 && dots.get(i).len() != count2) {
                 return false;
             }
         }
@@ -49,7 +46,6 @@ public class Figure {
 
         return dots.size() == n;
     }
-
     public boolean isFigure() {
         return true;
     }

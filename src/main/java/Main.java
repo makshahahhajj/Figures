@@ -27,6 +27,7 @@ public class Main {
     }
 
     private static Figure choose() {
+
         String command = scanner.nextLine();
 
         while (!command.matches("FIGURE|CIRCLE|SQUARE|RECTANGLE|PARALLELOGRAM|TRIANGLE|POLYGON|SPHERE|TRUNCATED_SPHERE|CYLINDER|CONE")) {
