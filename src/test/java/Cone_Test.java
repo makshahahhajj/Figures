@@ -1,3 +1,4 @@
+import consts.Consts;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +20,7 @@ public class Cone_Test {
                 new Point(new String[]{"0", "0", "1"})
         ));
 
-        conus = new Cone(points, 3, 3, 3);
+        conus = new Cone(points, Consts.THREE_POINT, false);
         then(conus.isValid()).isTrue();
         then(conus.getArea()).isEqualTo("7,58");
         then(conus.getPerimeter()).isEqualTo(" has no perimeter");
@@ -31,7 +32,7 @@ public class Cone_Test {
                 new Point(new String[]{"1", "0", "1"})
         ));
 
-        conus = new Cone(points, 3, 3, 3);
+        conus = new Cone(points, Consts.THREE_POINT, false);
 
         then(conus.isValid()).isFalse();
 

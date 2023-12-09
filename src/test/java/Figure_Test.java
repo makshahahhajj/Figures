@@ -1,3 +1,4 @@
+import consts.Consts;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -23,7 +24,7 @@ public class Figure_Test {
                 new Point(new String[]{"1", "0", "0"})
         ));
 
-        figure = new Figure(points, 3, 2, 3);
+        figure = new Figure(points, Consts.THREE_POINT, true);
         //Совпадение точки, ожидаемый результат false
         then(figure.isValid()).isFalse();
 
@@ -34,7 +35,7 @@ public class Figure_Test {
         ));
 
         //несовпадение количества точек, ожидаемый результат false
-        figure = new Figure(points, 4, 2, 3);
+        figure = new Figure(points, 4, true);
         then(figure.isValid()).isFalse();
 
         //несовпадение количества координат, ожидаемый результат false
@@ -44,7 +45,7 @@ public class Figure_Test {
                 new Point(new String[]{"2", "0", "0"})
         ));
 
-        figure = new Figure(points, 4, 2, 2);
+        figure = new Figure(points, Consts.THREE_POINT, true);
         then(figure.isValid()).isFalse();
 
         // ввод валидных координат, ожидаемый результат true
@@ -55,7 +56,7 @@ public class Figure_Test {
                 new Point(new String[]{"2", "0", "0"})
         ));
 
-        figure = new Figure(points, 3, 2, 3);
+        figure = new Figure(points, Consts.THREE_POINT, true);
         then(figure.isValid()).isTrue();
 
         points = new ArrayList<>(Arrays.asList(
@@ -64,7 +65,7 @@ public class Figure_Test {
                 new Point(new String[]{"2", "0"})
         ));
 
-        figure = new Figure(points, 3, 2, 3);
+        figure = new Figure(points, Consts.THREE_POINT, true);
         then(figure.isValid()).isTrue();
 
         // проверка на совпаденниие координат в точке
@@ -74,7 +75,7 @@ public class Figure_Test {
                 new Point(new String[]{"2", "0"})
         ));
 
-        figure = new Figure(points, 3, 2, 3);
+        figure = new Figure(points, Consts.THREE_POINT, false);
         then(figure.isValid()).isFalse();
 
     }

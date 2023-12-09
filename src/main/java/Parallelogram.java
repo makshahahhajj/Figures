@@ -8,8 +8,8 @@ public class Parallelogram extends Figure {
     private double line3 = 0;
     private double line4 = 0;
 
-    public Parallelogram(ArrayList<Point> dots, int n, int count1, int count2) {
-        super(dots, n, count1, count2);
+    public Parallelogram(ArrayList<Point> dots, int points_amount, boolean isTwoCoordinates) {
+        super(dots, points_amount, isTwoCoordinates);
     }
 
     public String getArea() {
@@ -17,7 +17,7 @@ public class Parallelogram extends Figure {
 
         pointsT.remove(0);
 
-        Triangle tr = new Triangle(pointsT, 3, 2, 3);
+        Triangle tr = new Triangle(pointsT, Consts.THREE_POINT, true);
         return String.format("%.2f", tr.getAreaDouble() * 2);
 
     }
@@ -28,17 +28,15 @@ public class Parallelogram extends Figure {
     }
 
     public boolean isValid() {
-        Point point1 = dots.get(Consts.FIRST);
-        Point point2 = dots.get(Consts.SECOND);
-        Point point3 = dots.get(Consts.THIRD);
-        Point point4 = dots.get(Consts.FOURTH);
+        boolean isTwoDots = dots.get(Consts.FIRST).len() == 2;
 
-        line1 = Math.sqrt(Math.pow(point1.getX() - point2.getX(), 2) + Math.pow(point1.getY() - point2.getY(), 2));
-        line2 = Math.sqrt(Math.pow(point2.getX() - point3.getX(), 2) + Math.pow(point2.getY() - point3.getY(), 2));
-        line3 = Math.sqrt(Math.pow(point3.getX() - point4.getX(), 2) + Math.pow(point3.getY() - point4.getY(), 2));
-        line4 =  Math.sqrt(Math.pow(point4.getX() - point1.getX(), 2) + Math.pow(point4.getY() - point1.getY(), 2));
+        line1 = countLine(Consts.FIRST, Consts.SECOND, isTwoDots);
+        line2 = countLine(Consts.SECOND, Consts.THIRD, isTwoDots);
+        line3 = countLine(Consts.THIRD, Consts.FOURTH, isTwoDots);
+        line4 =  countLine(Consts.FOURTH, Consts.FIRST, isTwoDots);
+        System.out.println(line1 + " " + line2 + " " + line3 + " " + line4);
 
-        return !(line1 != line3 || line2 != line4 || line1 == line2) && super.isValid();
+        return (line1 == line3 && line2 == line4 && line1 != line2 && line3 != line4) && super.isValid();
 
     }
 

@@ -18,7 +18,7 @@ public class TruncatedSphere_Test {
                 new Point(new String[]{"0", "0", "4"}),
                 new Point(new String[]{"1", "0", "2"})
         ));
-        sphere = new TruncatedSphere(points, 3, 3, 3);
+        sphere = new TruncatedSphere(points, 3, false);
         then(sphere.isValid()).isTrue();
         then(sphere.getArea()).isEqualTo("188,50");
         then(sphere.getPerimeter()).isEqualTo(" has no perimeter");
@@ -29,7 +29,7 @@ public class TruncatedSphere_Test {
                 new Point(new String[]{"0", "0", "4"}),
                 new Point(new String[]{"4", "0", "2"})
         ));
-        sphere = new TruncatedSphere(points, 3, 3, 3);
+        sphere = new TruncatedSphere(points, 3, false);
         then(sphere.isValid()).isFalse();
     }
 }

@@ -18,7 +18,7 @@ public class Triangle_Test {
                 new Point(new String[]{"2", "4"}),
                 new Point(new String[]{"3", "2"})
         ));
-        triangle = new Triangle(points, 3, 2, 3);
+        triangle = new Triangle(points, 3, true);
         then(triangle.isValid()).isTrue();
         then(triangle.getArea()).isEqualTo("2,00");
         then(triangle.getPerimeter()).isEqualTo(" perimeter 6,47");
@@ -28,7 +28,7 @@ public class Triangle_Test {
                 new Point(new String[]{"2", "4", "1"}),
                 new Point(new String[]{"3", "2", "1"})
         ));
-        triangle = new Triangle(points, 3, 2, 3);
+        triangle = new Triangle(points, 3, true);
         then(triangle.isValid()).isTrue();
         then(triangle.getArea()).isEqualTo("2,00");
         then(triangle.getPerimeter()).isEqualTo(" perimeter 6,47");
@@ -39,7 +39,7 @@ public class Triangle_Test {
                 new Point(new String[]{"2", "2"}),
                 new Point(new String[]{"3", "3"})
         ));
-        triangle = new Triangle(points, 3, 2, 3);
+        triangle = new Triangle(points, 3, true);
         then(triangle.isValid()).isFalse();
 
     }

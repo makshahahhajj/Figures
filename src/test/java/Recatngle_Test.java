@@ -19,7 +19,7 @@ public class Recatngle_Test {
                 new Point(new String[]{"2", "1", "0"}),
                 new Point(new String[]{"0", "1", "0"})
         ));
-        rectangle = new Rectangle(points, 4, 2, 3);
+        rectangle = new Rectangle(points, 4, true);
         then(rectangle.isValid()).isTrue();
         then(rectangle.getArea()).isEqualTo("2,00");
         then(rectangle.getPerimeter()).isEqualTo(" perimeter 6,00");
@@ -31,7 +31,7 @@ public class Recatngle_Test {
                 new Point(new String[]{"2", "1", "0"}),
                 new Point(new String[]{"0", "1", "0"})
         ));
-        rectangle = new Rectangle(points, 4, 2, 3);
+        rectangle = new Rectangle(points, 4, true);
         then(rectangle.isValid()).isFalse();
 
         //Проверка на угол не в 90 градусов при условии, что стороны параллельны
@@ -41,7 +41,7 @@ public class Recatngle_Test {
                 new Point(new String[]{"2", "1", "0"}),
                 new Point(new String[]{"1", "1", "0"})
         ));
-        rectangle = new Rectangle(points, 4, 2, 3);
+        rectangle = new Rectangle(points, 4, true);
         then(rectangle.isValid()).isFalse();
 
     }

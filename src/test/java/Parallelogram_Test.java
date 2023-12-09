@@ -1,3 +1,4 @@
+import consts.Consts;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +20,7 @@ public class Parallelogram_Test {
                 new Point(new String[]{"2", "1", "0"}),
                 new Point(new String[]{"1", "1", "0"})
         ));
-        parallelogram = new Parallelogram(points, 4, 2, 3);
+        parallelogram = new Parallelogram(points, Consts.FOUR_POINT, true);
         then(parallelogram.isValid()).isTrue();
         then(parallelogram.getArea()).isEqualTo("1,00");
         then(parallelogram.getPerimeter()).isEqualTo(" perimeter 4,83");
@@ -30,7 +31,7 @@ public class Parallelogram_Test {
                 new Point(new String[]{"2", "1"}),
                 new Point(new String[]{"1", "1"})
         ));
-        parallelogram = new Parallelogram(points, 4, 2, 3);
+        parallelogram = new Parallelogram(points, Consts.FOUR_POINT, true);
         then(parallelogram.isValid()).isTrue();
         then(parallelogram.getArea()).isEqualTo("1,00");
         then(parallelogram.getPerimeter()).isEqualTo(" perimeter 4,83");
@@ -38,11 +39,11 @@ public class Parallelogram_Test {
         //Проверка на непараллельность
         points = new ArrayList<>(Arrays.asList(
                 new Point(new String[]{"0", "0", "0"}),
-                new Point(new String[]{"1", "0", "0"}),
+                new Point(new String[]{"4", "0", "0"}),
                 new Point(new String[]{"3", "1", "0"}),
                 new Point(new String[]{"1", "1", "0"})
         ));
-        parallelogram = new Parallelogram(points, 4, 2, 3);
+        parallelogram = new Parallelogram(points, Consts.FOUR_POINT, true);
         then(parallelogram.isValid()).isFalse();
         
     }

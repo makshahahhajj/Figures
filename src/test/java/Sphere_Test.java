@@ -18,7 +18,7 @@ public class Sphere_Test {
                 new Point(new String[]{"1", "1", "1"})
         ));
 
-        sphere = new Sphere(points, 2, 3, 3);
+        sphere = new Sphere(points, 2, false);
         then(sphere.isValid()).isTrue();
         then(sphere.getArea()).isEqualTo("37,70");
         then(sphere.getPerimeter()).isEqualTo(" has no perimeter");

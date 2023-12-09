@@ -6,8 +6,8 @@ public class Square extends Figure {
     private double line = 0;
     private boolean checkLen = dots.get(0).len() == 2;
 
-    public Square(ArrayList<Point> dots, int n, int count1, int count2) {
-        super(dots, n, count1, count2);
+    public Square(ArrayList<Point> dots, int points_amount, boolean isTwoCoordinates) {
+        super(dots, points_amount, isTwoCoordinates);
     }
 
     private boolean checkCorner() {
@@ -37,13 +37,7 @@ public class Square extends Figure {
                     coord2.get(Consts.SECOND) + coord1.get(Consts.THIRD) * coord2.get(Consts.THIRD)) == 0;
         }
     }
-    private double setLine(Point p1, Point p2) {
-        if (dots.get(0).len() == 2) {
-            return Math.sqrt(Math.pow(p1.getX() - p2.getX(), 2) + Math.pow(p1.getY() - p2.getY(), 2));
-        } else {
-            return Math.sqrt(Math.pow(p1.getX() - p2.getX(), 2) + Math.pow(p1.getY() - p2.getY(), 2) + Math.pow(p1.getZ() - p2.getZ(), 2));
-        }
-    }
+
     public String getArea() {
         return String.format("%.2f", Math.pow(line, 2));
     }
@@ -53,13 +47,14 @@ public class Square extends Figure {
     }
 
     public  boolean isValid() {
-        double firstLine = setLine(dots.get(0), dots.get(1));
-        double secondLine = setLine(dots.get(3), dots.get(0));
+        boolean isTwoDots = dots.get(0).len() == 2;
+        double firstLine = countLine(Consts.FIRST, Consts.SECOND, isTwoDots);
+        double secondLine = countLine(Consts.FOURTH, Consts.FIRST, isTwoDots);
 
         line = firstLine;
 
         for (int i = 1; i < dots.size() - 1; i++) {
-            double l = setLine(dots.get(i), dots.get(i + 1));
+            double l = countLine(i, i + 1, isTwoDots);
             if (firstLine != l) {
                 return false;
             }

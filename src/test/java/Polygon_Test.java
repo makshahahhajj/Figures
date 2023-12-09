@@ -21,7 +21,7 @@ public class Polygon_Test {
                 new Point(new String[]{"3", "1", "2"})
         ));
 
-        polygon = new Polygon(points, 5, 2, 3);
+        polygon = new Polygon(points, 5, true);
         then(polygon.isValid()).isTrue();
         then(polygon.getArea()).isEqualTo("9,50");
         then(polygon.getPerimeter()).isEqualTo(" perimeter 12,86");
@@ -34,7 +34,7 @@ public class Polygon_Test {
                 new Point(new String[]{"3", "1"})
         ));
 
-        polygon = new Polygon(points, 5, 2, 3);
+        polygon = new Polygon(points, 5, true);
         then(polygon.isValid()).isTrue();
         then(polygon.getArea()).isEqualTo("9,50");
         then(polygon.getPerimeter()).isEqualTo(" perimeter 12,86");
@@ -47,7 +47,7 @@ public class Polygon_Test {
                 new Point(new String[]{"4", "4"})
         ));
 
-        polygon = new Polygon(points, 5, 2, 3);
+        polygon = new Polygon(points, 5, true);
         then(polygon.isValid()).isFalse();
 
     }

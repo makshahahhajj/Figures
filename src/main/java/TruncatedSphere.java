@@ -1,11 +1,12 @@
+import com.sun.tools.jconsole.JConsoleContext;
 import consts.Consts;
 
 import java.util.ArrayList;
 
 public class TruncatedSphere extends Figure{
     private double radius = 0;
-    public TruncatedSphere(ArrayList<Point> dots, int n, int count1, int count2) {
-        super(dots, n, count1, count2);
+    public TruncatedSphere(ArrayList<Point> dots, int points_amount, boolean isTwoCoordinates) {
+        super(dots, points_amount, isTwoCoordinates);
     }
 
     public String getArea() {
@@ -22,9 +23,8 @@ public class TruncatedSphere extends Figure{
     }
 
     public boolean isValid() {
-        double checkRadius = Math.sqrt(Math.pow(dots.get(Consts.FIRST).getX() - dots.get(Consts.THIRD).getX(), 2) + Math.pow(dots.get(Consts.FIRST).getY() - dots.get(Consts.THIRD).getY(), 2) + Math.pow(dots.get(Consts.FIRST).getZ() - dots.get(Consts.THIRD).getZ(), 2));
-        radius = Math.sqrt(Math.pow(dots.get(Consts.FIRST).getX() - dots.get(Consts.SECOND).getX(), 2) + Math.pow(dots.get(Consts.FIRST).getY() - dots.get(Consts.SECOND).getY(), 2) + Math.pow(dots.get(Consts.FIRST).getZ() - dots.get(Consts.SECOND).getZ(), 2));
-
+        double checkRadius = countLine(Consts.FIRST, Consts.THIRD, false);
+        radius = countLine(Consts.FIRST, Consts.SECOND, false);
         return (checkRadius <= radius) && super.isValid();
     }
 

@@ -44,25 +44,25 @@ public class Main {
 
         switch (command) {
             case "CIRCLE":
-                return new Circle(points, Consts.TWO_POINT, Consts.TWO_POINT, Consts.THREE_POINT);
+                return new Circle(points, Consts.TWO_POINT, true);
             case "SQUARE":
-                return new Square(points, Consts.FOUR_POINT, Consts.TWO_POINT, Consts.THREE_POINT);
+                return new Square(points, Consts.FOUR_POINT, true);
             case "RECTANGLE":
-                return new Rectangle(points, Consts.FOUR_POINT, Consts.TWO_POINT, Consts.THREE_POINT);
+                return new Rectangle(points, Consts.FOUR_POINT, true);
             case "TRIANGLE":
-                return new Triangle(points, Consts.THREE_POINT, Consts.TWO_POINT, Consts.THREE_POINT);
+                return new Triangle(points, Consts.THREE_POINT, true);
             case "PARALLELOGRAM":
-                return new Parallelogram(points, Consts.FOUR_POINT, Consts.TWO_POINT, Consts.THREE_POINT);
+                return new Parallelogram(points, Consts.FOUR_POINT, true);
             case "POLYGON":
-                return new Polygon(points, points.size() , Consts.TWO_POINT, Consts.THREE_POINT);
+                return new Polygon(points, points.size() , true);
             case "SPHERE":
-                return new Sphere(points, Consts.TWO_POINT, Consts.THREE_POINT, Consts.THREE_POINT);
+                return new Sphere(points, Consts.TWO_POINT, false);
             case "TRUNCATED_SPHERE":
-                return new TruncatedSphere(points, Consts.THREE_POINT, Consts.THREE_POINT, Consts.THREE_POINT);
+                return new TruncatedSphere(points, Consts.THREE_POINT, false);
             case "CYLINDER":
-                return new Cylinder(points, Consts.THREE_POINT, Consts.THREE_POINT, Consts.THREE_POINT);
+                return new Cylinder(points, Consts.THREE_POINT, false);
             case "CONE":
-                return new Cone(points, Consts.THREE_POINT, Consts.THREE_POINT, Consts.THREE_POINT);
+                return new Cone(points, Consts.THREE_POINT, false);
             default:
                 return new Figure();
         }

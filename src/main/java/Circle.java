@@ -5,16 +5,15 @@ import java.util.ArrayList;
 public class Circle extends Figure {
     private double radius = 0;
 
-    public Circle(ArrayList<Point> dots, int n, int count1, int count2) {
-        super(dots, n, count1, count2);
+    public Circle(ArrayList<Point> dots, int points_amount, boolean isTwoCoordinates) {
+        super(dots, points_amount, isTwoCoordinates);
         setRadius();
     }
     private void setRadius() {
         if (dots.get(0).len() == 3) {
-            radius = Math.sqrt(Math.pow((dots.get(Consts.FIRST).getX() - dots.get(Consts.SECOND).getX()), 2) + Math.pow((dots.get(Consts.FIRST).getY() - dots.get(Consts.SECOND).getY()), 2) + Math.pow((dots.get(Consts.FIRST).getZ() - dots.get(Consts.SECOND).getZ()), 2));
+            radius = countLine(Consts.FIRST, Consts.SECOND, false);
         } else {
-            radius = Math.sqrt(Math.pow((dots.get(Consts.FIRST).getX() - dots.get(Consts.SECOND).getX()), 2) + Math.pow((dots.get(Consts.FIRST).getY() - dots.get(Consts.SECOND).getY()), 2));
-
+            radius = countLine(Consts.FIRST, Consts.SECOND, true);
         }
     }
 

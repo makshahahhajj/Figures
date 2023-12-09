@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Polygon extends Figure {
 
-    public Polygon(ArrayList<Point> dots, int n, int count1, int count2) {
-        super(dots, n, count1, count2);
+    public Polygon(ArrayList<Point> dots, int points_amount, boolean isTwoCoordinates) {
+        super(dots, points_amount, isTwoCoordinates);
     }
 
     public String getPerimeter() {
@@ -13,15 +13,15 @@ public class Polygon extends Figure {
 
         if (dots.get(0).len() == 2) {
             for (int i = 0; i < dots.size() - 1; i++) {
-                perim += Math.sqrt(Math.pow(dots.get(i).getX() - dots.get(i + 1).getX(), 2) + Math.pow(dots.get(i).getY() - dots.get(i + 1).getY(), 2));
+                perim += countLine(i, i + 1, true);
             }
-            perim += Math.sqrt(Math.pow(dots.get(Consts.FIRST).getX() - dots.get(dots.size() - 1).getX(), 2) + Math.pow(dots.get(Consts.FIRST).getY() - dots.get(dots.size() - 1).getY(), 2));
+            perim += countLine(Consts.FIRST, dots.size() - 1, true);
         } else {
             for (int i = 0; i < dots.size() - 1; i++) {
-                perim += Math.sqrt(Math.pow(dots.get(i).getX() - dots.get(i + 1).getX(), 2) + Math.pow(dots.get(i).getY() - dots.get(i + 1).getY(), 2) + Math.pow(dots.get(i).getZ() - dots.get(i + 1).getZ(), 2));
+                perim += countLine(i, i + 1, false);
             }
-            perim += Math.sqrt(Math.pow(dots.get(Consts.FIRST).getX() - dots.get(dots.size() - 1).getX(), 2) + Math.pow(dots.get(Consts.FIRST).getY() - dots.get(dots.size() - 1).getY(), 2) + Math.pow(dots.get(Consts.FIRST).getZ() - dots.get(dots.size() - 1).getZ(), 2));
 
+            perim += countLine(Consts.FIRST, dots.size() - 1, false);
         }
 
         return String.format(" perimeter %.2f", perim);
@@ -50,7 +50,7 @@ public class Polygon extends Figure {
                 points.add(dots.get(i));
                 points.add(dots.get(i+1));
 
-                Triangle tr = new Triangle(points, 3, 3, 3);
+                Triangle tr = new Triangle(points, Consts.THREE_POINT, true);
 
                 area += tr.getAreaDouble();
 
@@ -65,12 +65,12 @@ public class Polygon extends Figure {
     public boolean isValid() {
         double endLine;
         if (dots.get(0).len() == Consts.THREE_POINT){
-            endLine = Math.sqrt(Math.pow(dots.get(Consts.FIRST).getX() - dots.get(dots.size() - 1).getX(), 2) + Math.pow(dots.get(Consts.FIRST).getY() - dots.get(dots.size() - 1).getY(), 2) + Math.pow(dots.get(Consts.FIRST).getZ() - dots.get(dots.size() - 1).getZ(), 2));
+            endLine = countLine(Consts.FIRST, dots.size() - 1, false);
         } else {
-            endLine = Math.sqrt(Math.pow(dots.get(Consts.FIRST).getX() - dots.get(dots.size() - 1).getX(), 2) + Math.pow(dots.get(Consts.FIRST).getY() - dots.get(dots.size() - 1).getY(), 2));
+            endLine = countLine(Consts.FIRST, dots.size() - 1, true);
         }
 
-        return !String.format(" perimeter %.2f", 2 * endLine).equals(getPerimeter()) && !(dots.size() < 3) && super.isValid();
+        return !String.format(" perimeter %.2f", 2 * endLine).equals(getPerimeter()) && (dots.size() >= 3) && super.isValid();
     }
 
     public boolean isFigure() {

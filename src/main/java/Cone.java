@@ -4,30 +4,31 @@ import java.util.ArrayList;
 
 public class Cone extends Figure {
 
-    public Cone(ArrayList<Point> dots, int n, int count1, int count2) {
-        super(dots, n, count1, count2);
+    public Cone(ArrayList<Point> dots, int points_amount, boolean isTwoCoordinates) {
+        super(dots, points_amount, isTwoCoordinates);
     }
 
     private boolean checkCorner() {
-        ArrayList<Integer> coord1 = new ArrayList<>();
-        coord1.add(dots.get(Consts.FIRST).getX() - dots.get(Consts.SECOND).getX());
-        coord1.add(dots.get(Consts.FIRST).getY() - dots.get(Consts.SECOND).getY());
-        coord1.add(dots.get(Consts.FIRST).getZ() - dots.get(Consts.SECOND).getZ());
+        ArrayList<Integer> h_coord = new ArrayList<>();
+        h_coord.add(dots.get(Consts.FIRST).getX() - dots.get(Consts.SECOND).getX());
+        h_coord.add(dots.get(Consts.FIRST).getY() - dots.get(Consts.SECOND).getY());
+        h_coord.add(dots.get(Consts.FIRST).getZ() - dots.get(Consts.SECOND).getZ());
 
-        ArrayList<Integer> coord2 = new ArrayList<>();
-        coord2.add(dots.get(Consts.THIRD).getX() - dots.get(Consts.FIRST).getX());
-        coord2.add(dots.get(Consts.THIRD).getY() - dots.get(Consts.FIRST).getY());
-        coord2.add(dots.get(Consts.THIRD).getZ() - dots.get(Consts.FIRST).getZ());
+        ArrayList<Integer> radius_coord = new ArrayList<>();
+        radius_coord.add(dots.get(Consts.THIRD).getX() - dots.get(Consts.FIRST).getX());
+        radius_coord.add(dots.get(Consts.THIRD).getY() - dots.get(Consts.FIRST).getY());
+        radius_coord.add(dots.get(Consts.THIRD).getZ() - dots.get(Consts.FIRST).getZ());
 
 
-        return coord1.get(Consts.FIRST) * coord2.get(Consts.FIRST) + coord1.get(Consts.SECOND) * coord2.get(Consts.SECOND) + coord1.get(Consts.THIRD) * coord2.get(Consts.THIRD) == 0;
+        return  h_coord.get(Consts.FIRST) * radius_coord.get(Consts.FIRST) +
+                h_coord.get(Consts.SECOND) * radius_coord.get(Consts.SECOND) +
+                h_coord.get(Consts.THIRD) * radius_coord.get(Consts.THIRD) == 0;
 
     }
 
     public String getArea() {
-        double radius = Math.sqrt(Math.pow(dots.get(Consts.FIRST).getX() - dots.get(Consts.SECOND).getX(), 2) + Math.pow(dots.get(Consts.FIRST).getY() - dots.get(Consts.SECOND).getY(), 2) + Math.pow(dots.get(Consts.FIRST).getZ() - dots.get(Consts.SECOND).getZ(), 2));
-        double h = Math.sqrt(Math.pow(dots.get(Consts.SECOND).getX() - dots.get(Consts.THIRD).getX(), 2) + Math.pow(dots.get(Consts.SECOND).getY() - dots.get(Consts.THIRD).getY(), 2) + Math.pow(dots.get(Consts.SECOND).getZ() - dots.get(Consts.THIRD).getZ(), 2));
-
+        double radius = countLine(Consts.FIRST, Consts.SECOND, false);
+        double h = countLine(Consts.SECOND, Consts.THIRD, false);
         return String.format("%.2f", Math.PI * radius * (h + radius));
     }
 

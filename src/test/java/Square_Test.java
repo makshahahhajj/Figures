@@ -19,7 +19,7 @@ public class Square_Test {
                 new Point(new String[]{"1", "1", "1"}),
                 new Point(new String[]{"0", "1", "1"})
         ));
-        square = new Square(points, 4, 2, 3);
+        square = new Square(points, 4, true);
         then(square.isValid()).isTrue();
         then(square.getArea()).isEqualTo("1,00");
         then(square.getPerimeter()).isEqualTo(" perimeter 4,00");
@@ -30,7 +30,7 @@ public class Square_Test {
                 new Point(new String[]{"1", "1"}),
                 new Point(new String[]{"0", "1"})
         ));
-        square = new Square(points, 4, 2, 3);
+        square = new Square(points, 4, true);
         then(square.isValid()).isTrue();
         then(square.getArea()).isEqualTo("1,00");
         then(square.getPerimeter()).isEqualTo(" perimeter 4,00");
@@ -42,7 +42,7 @@ public class Square_Test {
                 new Point(new String[]{"3", "2"}),
                 new Point(new String[]{"2", "0"})
         ));
-        square = new Square(points, 4, 2, 3);
+        square = new Square(points, 4, true);
         then(square.isValid()).isFalse();
 
         //Стороны неравны, но угол в 90 градусов(прямоугольник)
@@ -52,7 +52,7 @@ public class Square_Test {
                 new Point(new String[]{"1", "2"}),
                 new Point(new String[]{"0", "2"})
         ));
-        square = new Square(points, 4, 2, 3);
+        square = new Square(points, 4, true);
         then(square.isValid()).isFalse();
 
     }

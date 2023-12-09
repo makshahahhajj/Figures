@@ -1,3 +1,4 @@
+import consts.Consts;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +18,7 @@ public class Circle_Test {
                 new Point(new String[]{"1", "0"})
         ));
 
-        circle = new Circle(points, 2, 2, 3);
+        circle = new Circle(points, Consts.TWO_POINT, true);
         then(circle.getArea()).isEqualTo("3,14");
         then(circle.getPerimeter()).isEqualTo(" perimeter 6,28");
 
@@ -26,7 +27,7 @@ public class Circle_Test {
                 new Point(new String[]{"1", "0", "1"})
         ));
 
-        circle = new Circle(points, 2, 2, 3);
+        circle = new Circle(points, Consts.TWO_POINT, true);
         then(circle.getArea()).isEqualTo("6,28");
         then(circle.getPerimeter()).isEqualTo(" perimeter 8,89");
 

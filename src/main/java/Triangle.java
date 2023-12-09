@@ -8,17 +8,8 @@ public class Triangle extends Figure{
     private double line2 = 0;
     private double line3 = 0;
 
-    public Triangle(ArrayList<Point> dots, int n, int count1, int count2) {
-        super(dots, n, count1, count2);
-    }
-
-    private double setline (Point point1, Point point2) {
-         if (point1.len() == 2) {
-             return Math.sqrt(Math.pow(point1.getX() - point2.getX(), 2) + Math.pow(point1.getY() - point2.getY(), 2));
-         } else {
-             return Math.sqrt(Math.pow(point1.getX() - point2.getX(), 2) + Math.pow(point1.getY() - point2.getY(), 2) + Math.pow(point1.getZ() - point2.getZ(), 2));
-         }
-
+    public Triangle(ArrayList<Point> dots, int points_amount, boolean isTwoCoordinates) {
+        super(dots, points_amount, isTwoCoordinates);
     }
 
     public String getArea() {
@@ -38,11 +29,12 @@ public class Triangle extends Figure{
     }
 
     public boolean isValid() {
-        line1 = setline(dots.get(Consts.FIRST), dots.get(Consts.SECOND));
-        line2 = setline(dots.get(Consts.SECOND), dots.get(Consts.THIRD));
-        line3 = setline(dots.get(Consts.THIRD), dots.get(Consts.FIRST));
+        boolean isTwoDots = dots.get(0).len() == 2;
+        line1 = countLine(Consts.FIRST, Consts.SECOND, isTwoDots);
+        line2 = countLine(Consts.SECOND, Consts.THIRD, isTwoDots);
+        line3 = countLine(Consts.THIRD, Consts.FIRST, isTwoDots);
 
-        return !(line1 >= line2 + line3 || line2 >= line1 + line3 || line3 >= line1 + line2) && super.isValid();
+        return (line1 < line2 + line3 && line2 < line1 + line3 && line3 < line1 + line2) && super.isValid();
     }
 
     public boolean isFigure() {
