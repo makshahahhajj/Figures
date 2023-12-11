@@ -12,9 +12,9 @@ public class MathOper {
     }
     // вычисление расстояния между точками
     public double countLine (int first_point, int second_point) {
-        double xCord = Math.pow((dots.get(first_point).getX() - dots.get(second_point).getX()), 2);
-        double yCord = Math.pow((dots.get(first_point).getY() - dots.get(second_point).getY()), 2);
-        double zCord =  Math.pow((dots.get(first_point).getZ() - dots.get(second_point).getZ()), 2);
+        double xCord = Math.pow(dots.get(first_point).getX() - dots.get(second_point).getX(), 2);
+        double yCord = Math.pow(dots.get(first_point).getY() - dots.get(second_point).getY(), 2);
+        double zCord =  Math.pow(dots.get(first_point).getZ() - dots.get(second_point).getZ(), 2);
 
         return Math.sqrt(xCord + yCord + zCord);
     }
