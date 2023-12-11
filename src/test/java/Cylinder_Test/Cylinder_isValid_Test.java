@@ -6,6 +6,7 @@ import figures.Cylinder;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -17,7 +18,7 @@ public class Cylinder_isValid_Test {
     @Test
     @DisplayName("Cylinder isValid test passed")
     public void cylinderValid() {
-        // Проверка на перпендикулрность и проверка расчетов
+        // Проверка на перпендикулрность
         ArrayList<Point> points = new ArrayList<>(Arrays.asList(
                 new Point(new String[]{"0", "0", "0"}),
                 new Point(new String[]{"0", "0", "1"}),
@@ -44,8 +45,6 @@ public class Cylinder_isValid_Test {
 
         cylinder = new Cylinder(points, Consts.THREE_POINT, true);
         then(cylinder.isValid()).isFalse();
-
-
 
     }
 }

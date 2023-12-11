@@ -11,8 +11,13 @@ public class Rectangle extends Figure{
 
     public Rectangle(ArrayList<Point> dots, int points_amount, boolean isOnlyThreePoints) {
         super(dots, points_amount, isOnlyThreePoints);
-        this.lineOne = math.countLine(Consts.FIRST, Consts.SECOND);
-        this.lineTwo = math.countLine(Consts.SECOND, Consts.THIRD);;
+    }
+
+    private void setLines() {
+        if (lineTwo + lineOne == 0) {
+            lineOne = math.countLine(Consts.FIRST, Consts.SECOND);
+            lineTwo = math.countLine(Consts.SECOND, Consts.THIRD);
+        }
     }
 
     private boolean checkCorner() {
@@ -21,21 +26,28 @@ public class Rectangle extends Figure{
         return math.countingScalar(width, height);
     }
     public String getArea() {
+        setLines();
         return String.format("%.2f", lineOne * lineTwo);
     }
 
     public  String getPerimeter() {
+        setLines();
         return String.format("%.2f", 2 * (lineTwo + lineOne));
     }
 
+
     public  boolean isValid() {
-        double line1 = lineOne;
-        double line2 = lineTwo;
-        double line3 = math.countLine(Consts.THIRD, Consts.FOURTH);
-        double line4 = math.countLine(Consts.FOURTH, Consts.FIRST);
+        if (super.isValid()) {
+            setLines();
+            double line1 = lineOne;
+            double line2 = lineTwo;
+            double line3 = math.countLine(Consts.THIRD, Consts.FOURTH);
+            double line4 = math.countLine(Consts.FOURTH, Consts.FIRST);
 
+            return checkCorner() && line1 == line3 && line2 == line4 && line1 != line2;
+        }
 
-        return checkCorner() && !(line1 != line3 || line2 != line4 || line1 == line2) && super.isValid();
+        return false;
     }
 
     public boolean isFigure() {

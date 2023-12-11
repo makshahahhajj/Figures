@@ -9,10 +9,16 @@ public class TruncatedSphere extends Figure{
     private double radius = 0;
     public TruncatedSphere(ArrayList<Point> dots, int points_amount, boolean isOnlyThreePoints) {
         super(dots, points_amount, isOnlyThreePoints);
-        this.radius = math.countLine(Consts.FIRST, Consts.SECOND);
+    }
+
+    private void setRadius() {
+        if (radius == 0) {
+            radius = math.countLine(Consts.FIRST, Consts.SECOND);
+        }
     }
 
     public String getArea() {
+        setRadius();
         double truncRadius = Math.sqrt(Math.pow(radius, 2) - Math.pow(dots.get(Consts.THIRD).getZ(), 2));
         double h = radius - dots.get(Consts.THIRD).getZ();
         double truncArea = 2 * Math.PI * radius * h;
@@ -26,8 +32,14 @@ public class TruncatedSphere extends Figure{
     }
 
     public boolean isValid() {
-        double checkRadius = math.countLine(Consts.FIRST, Consts.THIRD);
-        return (checkRadius <= radius) && super.isValid();
+        if (super.isValid()) {
+            setRadius();
+            double checkRadius = math.countLine(Consts.FIRST, Consts.THIRD);
+            return checkRadius <= radius;
+        }
+
+        return false;
+
     }
 
     public boolean isFigure() {

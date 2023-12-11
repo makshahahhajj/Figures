@@ -25,14 +25,14 @@ public class Cylinder_getArea_Test {
         cylinder = new Cylinder(points, Consts.THREE_POINT, true);
         then(cylinder.getArea()).isEqualTo("12,57");
 
-//        points = new ArrayList<>(Arrays.asList(
-//                new Point(new String[]{"0", "0", "0"}),
-//                new Point(new String[]{"0", "0", "1"}),
-//                new Point(new String[]{"1", "0", "1"})
-//        ));
-//
-//        cylinder = new Cylinder(points, Consts.THREE_POINT, true);
-//        then(cylinder.getArea()).isEqualTo("12,57");
+        points = new ArrayList<>(Arrays.asList(
+                new Point(new String[]{"0", "0", "0"}),
+                new Point(new String[]{"0", "0", "1"}),
+                new Point(new String[]{"1", "0", "1"})
+        ));
+
+        cylinder = new Cylinder(points, Consts.THREE_POINT, true);
+        then(cylinder.getArea()).isEqualTo("12,57");
 
     }
 }

@@ -17,7 +17,7 @@ public class Cone_isValid_Test {
     @Test
     @DisplayName("Cone isValid test passed")
     public void coneValid() {
-        // Проверка на перепендикулярность и проверка расчетов
+        // Проверка на перепендикулярность
         ArrayList<Point> points = new ArrayList<>(Arrays.asList(
                 new Point(new String[]{"0", "0", "0"}),
                 new Point(new String[]{"1", "0", "0"}),

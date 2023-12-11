@@ -18,7 +18,7 @@ public class Figure_isValid_Test {
     @DisplayName("Figure isValid test passed")
     public void figureValid() {
         figure = new Figure();
-
+        //Совпадение точки, ожидаемый результат false
         ArrayList<Point> points = new ArrayList<>(Arrays.asList(
                 new Point(new String[]{"0", "0", "0"}),
                 new Point(new String[]{"1", "0", "0"}),
@@ -26,19 +26,17 @@ public class Figure_isValid_Test {
         ));
 
         figure = new Figure(points, Consts.THREE_POINT, true);
-        //Совпадение точки, ожидаемый результат false
         then(figure.isValid()).isFalse();
 
+        //несовпадение количества точек, ожидаемый результат false
         points = new ArrayList<>(Arrays.asList(
                 new Point(new String[]{"0", "0", "0"}),
                 new Point(new String[]{"1", "0", "0"}),
                 new Point(new String[]{"2", "0", "0"})
         ));
 
-        //несовпадение количества точек, ожидаемый результат false
         figure = new Figure(points, Consts.FOUR_POINT,  true);
         then(figure.isValid()).isFalse();
-
 
         // ввод валидных координат, ожидаемый результат true
         points = new ArrayList<>(Arrays.asList(
@@ -59,7 +57,7 @@ public class Figure_isValid_Test {
         figure = new Figure(points, Consts.THREE_POINT, false);
         then(figure.isValid()).isTrue();
 
-        // проверка на совпаденниие координат в точке
+        // проверка на несовпадение количества координат у точек
         points = new ArrayList<>(Arrays.asList(
                 new Point(new String[]{"0", "0"}),
                 new Point(new String[]{"1", "0", "1"}),

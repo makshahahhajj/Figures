@@ -29,7 +29,7 @@ public class Cone extends Figure {
     }
 
     public boolean isValid() {
-        return checkCorner() && super.isValid();
+        return super.isValid() && checkCorner();
     }
 
     public boolean isFigure() {

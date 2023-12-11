@@ -41,9 +41,9 @@ public class Figure {
             if (point_len != p.len()) {
                return false;
             }
-           if (isOnlyThreePoints && point_len != 3) {
-               return false;
-           }
+            if (isOnlyThreePoints && point_len != 3) {
+                return false;
+            }
 
         }
 

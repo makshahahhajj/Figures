@@ -26,5 +26,13 @@ public class Rectangle_getPerimeter_Test {
         rectangle = new Rectangle(points, Consts.FOUR_POINT, false);
         then(rectangle.getPerimeter()).isEqualTo("6,00");
 
+        points = new ArrayList<>(Arrays.asList(
+                new Point(new String[]{"0", "0"}),
+                new Point(new String[]{"2", "0"}),
+                new Point(new String[]{"2", "1"}),
+                new Point(new String[]{"0", "1"})
+        ));
+        rectangle = new Rectangle(points, Consts.FOUR_POINT, false);
+        then(rectangle.getPerimeter()).isEqualTo("6,00");
     }
 }

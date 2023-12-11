@@ -10,9 +10,12 @@ public class Square extends Figure {
 
     public Square(ArrayList<Point> dots, int points_amount, boolean isOnlyThreePoints) {
         super(dots, points_amount, isOnlyThreePoints);
-        this.line = math.countLine(Consts.FIRST, Consts.SECOND);
     }
-
+    private void setLine() {
+        if (line == 0) {
+            line = math.countLine(Consts.FIRST, Consts.SECOND);
+        }
+    }
     private boolean checkCorner() {
         ArrayList<Integer> width= math.doLineCords(Consts.FIRST, Consts.SECOND);
         ArrayList<Integer> height = math.doLineCords(Consts.THIRD, Consts.SECOND);
@@ -20,25 +23,32 @@ public class Square extends Figure {
     }
 
     public String getArea() {
+        setLine();
         return String.format("%.2f", Math.pow(line, 2));
     }
 
-    public  String getPerimeter() {
+    public String getPerimeter() {
+        setLine();
         return String.format("%.2f", line * 4);
     }
 
     public  boolean isValid() {
-        double firstLine = line;
-        double secondLine = math.countLine(Consts.FOURTH, Consts.FIRST);
+        if (super.isValid()) {
+            setLine();
+            double firstLine = line;
+            double secondLine = math.countLine(Consts.FOURTH, Consts.FIRST);
 
-        for (int i = 1; i < dots.size() - 1; ++i) {
-            double l = math.countLine(i, i + 1);
-            if (firstLine != l) {
-                return false;
+            for (int i = 1; i < dots.size() - 1; ++i) {
+                double l = math.countLine(i, i + 1);
+                if (firstLine != l) {
+                    return false;
+                }
             }
+
+            return checkCorner() && firstLine == secondLine;
         }
 
-        return checkCorner() && (firstLine == secondLine) && super.isValid();
+        return false;
     }
 
     public boolean isFigure() {

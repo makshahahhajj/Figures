@@ -10,19 +10,26 @@ public class Circle extends Figure {
 
     public Circle(ArrayList<Point> dots, int points_amount, boolean isOnlyThreePoints) {
         super(dots, points_amount, isOnlyThreePoints);
-        radius = math.countLine(Consts.FIRST, Consts.SECOND);
     }
 
     @Override
     public String getArea() {
+        setRadius();
         double area = Math.PI * Math.pow(radius, 2);
         return String.format("%.2f", area);
     }
 
     @Override
     public String getPerimeter() {
+        setRadius();
         double per = 2 * Math.PI * radius;
         return String.format("%.2f", per);
+    }
+
+    private void setRadius() {
+        if (radius == 0) {
+            radius = math.countLine(Consts.FIRST, Consts.SECOND);
+        }
     }
 
     @Override
