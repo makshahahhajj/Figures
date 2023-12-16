@@ -1,6 +1,5 @@
 package figures;
 
-import jdk.jfr.FlightRecorder;
 import point.Point;
 import consts.Consts;
 
